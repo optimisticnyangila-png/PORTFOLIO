@@ -1,0 +1,68 @@
+import { useState } from "react";
+import ProjectModal from "./ProjectModal";
+
+export default function Projects({ data }) {
+  const [filter, setFilter] = useState("All");
+  const [selected, setSelected] = useState(null);
+
+  const projects = data?.projects || [];
+  const categories = ["All", ...new Set(projects.map((project) => project.category))];
+  const filteredProjects =
+    filter === "All" ? projects : projects.filter((project) => project.category === filter);
+  const featuredProjects = projects.filter((project) => project.featured);
+
+  return (
+    <section>
+      <h2 className="mb-6 text-2xl font-bold">Featured Projects</h2>
+      <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {featuredProjects.map((project) => (
+          <ProjectCard key={project.id || project.name} project={project} onSelect={setSelected} />
+        ))}
+      </div>
+
+      <h2 className="mb-6 text-2xl font-bold">All Projects</h2>
+
+      <div className="mb-6 flex flex-wrap gap-2">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setFilter(category)}
+            className={`rounded px-4 py-2 ${
+              filter === category
+                ? "bg-cyan-500 text-white"
+                : "bg-gray-200 text-gray-700 dark:bg-slate-700 dark:text-gray-300"
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {filteredProjects.map((project) => (
+          <ProjectCard key={project.id || project.name} project={project} onSelect={setSelected} />
+        ))}
+      </div>
+
+      {selected && <ProjectModal project={selected} onClose={() => setSelected(null)} />}
+    </section>
+  );
+}
+
+function ProjectCard({ project, onSelect }) {
+  return (
+    <div
+      className="project-card cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105 dark:bg-slate-800"
+      onClick={() => onSelect(project)}
+    >
+      <img
+        src={project.image || "/images/default.png"}
+        width="250"
+        alt={project.name}
+        className="mb-4 h-48 w-full rounded object-cover"
+      />
+      <h3 className="mb-2 text-xl font-semibold">{project.name}</h3>
+      <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+    </div>
+  );
+}
