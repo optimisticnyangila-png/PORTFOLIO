@@ -47,9 +47,9 @@ class ApiService {
             social: {
                 email: "optimisticnyangila@gmail.com",
                 github: "https://github.com/optimisticnyangila-png",
-                linkedinLabel: "Mr Hope",
-                linkedin: "",
-                twitter: "",
+                linkedinLabel: "Kevine nyangila",
+                linkedin: "https://www.linkedin.com/in/kevine-nyangila-8a51b7407/",
+                twitter: "https://x.com/ONyangila99940",
             },
             skills: [
                 { name: "React", level: 88, group: "Frontend" },
@@ -70,7 +70,7 @@ class ApiService {
                     id: "flowpost-001",
                     name: "FlowPost",
                     featured: true,
-                    category: "Web",
+                    category: "App",
                     description: "Multi-account social media automation platform",
                     fullDescription: "FlowPost allows users to manage multiple social media accounts from a single dashboard, schedule posts, and automate content distribution across platforms.",
                     tech: ["React", "Node.js", "Express", "MongoDB"],
@@ -103,9 +103,8 @@ class ApiService {
                     details: "Building full-stack applications, improving backend architecture, and sharpening UI/UX quality through practical project delivery.",
                 },
                 {
-                    title: "Secondary Education",
-                    period: "2020 - 2024",
-                    details: "Attained Grade B Plain with strong performance in Mathematics, Languages, Chemistry, and Physics.",
+                    title: "Secondary Education and University",
+                    details: "Attained Grade B Plain and currently at Kisii University taking  Bachelor of  Science in Computer science.",
                 },
             ],
             testimonials: [],
