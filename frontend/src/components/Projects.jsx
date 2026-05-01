@@ -50,19 +50,58 @@ export default function Projects({ data }) {
 }
 
 function ProjectCard({ project, onSelect }) {
+  const links = project.links || {};
+
   return (
     <div
-      className="project-card cursor-pointer rounded-lg bg-white p-4 shadow-lg transition-transform hover:scale-105 dark:bg-slate-800"
+      className="project-card cursor-pointer rounded-xl bg-white p-4 shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800"
       onClick={() => onSelect(project)}
     >
       <img
         src={project.image || "/images/default.png"}
-        width="250"
         alt={project.name}
-        className="mb-4 h-48 w-full rounded object-cover"
+        className="mb-3 h-48 w-full rounded-lg object-cover"
       />
-      <h3 className="mb-2 text-xl font-semibold">{project.name}</h3>
-      <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
+      <h3 className="text-xl font-semibold text-slate-950 dark:text-white">{project.name}</h3>
+      <p className="mt-2 text-gray-600 dark:text-gray-300">{project.description}</p>
+
+      {project.tech?.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
+            <span
+              key={tech}
+              className="rounded bg-gray-200 px-2 py-1 text-sm text-slate-700 dark:bg-slate-700 dark:text-slate-200"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <div className="mt-4 flex gap-3">
+        {links.github && (
+          <a
+            href={links.github}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(event) => event.stopPropagation()}
+            className="font-medium text-blue-500 hover:text-blue-600"
+          >
+            GitHub
+          </a>
+        )}
+        {links.live && (
+          <a
+            href={links.live}
+            target="_blank"
+            rel="noreferrer"
+            onClick={(event) => event.stopPropagation()}
+            className="font-medium text-green-500 hover:text-green-600"
+          >
+            Live
+          </a>
+        )}
+      </div>
     </div>
   );
 }

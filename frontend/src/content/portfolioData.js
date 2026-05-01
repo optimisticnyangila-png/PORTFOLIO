@@ -2,13 +2,16 @@ export const portfolioData = {
   name: "Kevine Nyangila",
   title: "Full Stack Developer",
   tagline: "Building smart web applications that simplify digital workflows",
-  bio: "Full stack developer passionate about building modern, scalable, and user-friendly web applications. Skilled in both frontend and backend development with a strong foundation in programming, problem-solving, and system design. Focused on creating digital solutions that improve efficiency and automate workflows.",
+  profileImage: "/images/profile.jpg",
+  bio: "Full stack developer passionate about building modern, scalable, and user-friendly web applications. Skilled in both frontend and backend development with a strong foundation in programming, problem-solving, and system design.",
+  cv: "https://eu.wps.com/l/cbPaspXQ4Vwj6qb9",
   social: {
     email: "optimisticnyangila@gmail.com",
     github: "https://github.com/optimisticnyangila-png",
-    linkedinLabel: "Mr Hope",
-    linkedin: "",
-    twitter: "",
+    linkedinLabel: "Kevine Nyangila",
+    linkedin: "https://www.linkedin.com/in/kevine-nyangila-8a51b7407/",
+    twitter: "https://x.com/ONyangila99940",
+    facebook: "https://www.facebook.com/kevin.nyangila",
   },
   skills: [
     { name: "React", level: 88, group: "Frontend" },
@@ -37,7 +40,7 @@ export const portfolioData = {
       image: "/images/flowpost.png",
       links: {
         live: "",
-        github: "",
+        github: "https://github.com/optimisticnyangila-png/flowpost",
         demo: "",
       },
     },
@@ -52,7 +55,7 @@ export const portfolioData = {
       image: "/images/portfolio.png",
       links: {
         live: "",
-        github: "",
+        github: "https://github.com/optimisticnyangila-png/portfolio",
         demo: "",
       },
     },

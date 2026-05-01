@@ -103,21 +103,29 @@ export default function PortfolioPage() {
           animate={{ opacity: 1, y: 0 }}
           className="py-16 text-center"
         >
+          <img
+            src={portfolioData.profileImage || "/images/default.png"}
+            alt={`${portfolioData.name} profile`}
+            onError={(event) => {
+              event.currentTarget.src = "/images/default.png";
+            }}
+            className="mx-auto mb-5 h-32 w-32 rounded-full border-4 border-cyan-400/40 object-cover shadow-lg"
+          />
           <p className="mb-2 text-cyan-400">{portfolioData.title}</p>
-          <h1 className="text-4xl font-extrabold md:text-6xl">{portfolioData.name}</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-400">
+          <h1 className="text-center text-4xl font-extrabold md:text-6xl">{portfolioData.name}</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-slate-400">
             {portfolioData.tagline}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="#projects" className="rounded-xl bg-cyan-500 px-5 py-3 font-medium text-slate-950">
+            <a href="#projects" className="btn">
               View Projects
             </a>
-            <a href="#contact" className="rounded-xl border border-white/20 px-5 py-3 font-medium">
+            <a href="#contact" className="btn-outline">
               Contact Me
             </a>
-            <a href="#" className="rounded-xl border border-white/20 px-5 py-3 font-medium opacity-60">
+            <a href={portfolioData.cv || "#"} target="_blank" rel="noreferrer" className="btn">
               <Download className="mr-2 inline" size={16} />
-              CV
+              Download CV
             </a>
           </div>
         </motion.div>
@@ -194,7 +202,7 @@ export default function PortfolioPage() {
               )}
             </div>
           </div>
-          <ContactForm />
+          <ContactForm data={portfolioData} />
         </div>
       </Section>
     </div>
