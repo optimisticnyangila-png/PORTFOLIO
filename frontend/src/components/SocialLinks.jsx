@@ -1,4 +1,7 @@
-import { Mail } from "lucide-react";
+import { Coffee, Mail } from "lucide-react";
+
+const kofiUrl =
+  "https://ko-fi.com/kevinenyangila?utm_medium=email&utm_source=onboarding&utm_campaign=SharePage";
 
 const socialItems = [
   {
@@ -36,6 +39,13 @@ const socialItems = [
     mark: "f",
     color: "bg-blue-700 text-white",
   },
+  {
+    key: "kofi",
+    label: "Support on Ko-fi",
+    getHref: () => kofiUrl,
+    mark: "coffee",
+    color: "bg-rose-500 text-white",
+  },
 ];
 
 export default function SocialLinks({ social, className = "" }) {
@@ -64,7 +74,9 @@ export default function SocialLinks({ social, className = "" }) {
             <span
               className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${color}`}
             >
-              {mark === "mail" ? <Mail size={15} /> : mark}
+              {mark === "mail" && <Mail size={15} />}
+              {mark === "coffee" && <Coffee size={15} />}
+              {mark !== "mail" && mark !== "coffee" && mark}
             </span>
             <span>{label}</span>
           </a>

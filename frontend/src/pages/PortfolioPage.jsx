@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Download, Moon, Sun } from "lucide-react";
+import { Coffee, Download, Moon, Sun } from "lucide-react";
 import SEO from "../components/SEO";
 import Projects from "../components/Projects";
 import ContactForm from "../components/ContactForm";
@@ -9,6 +9,8 @@ import { useThemeContext } from "../hooks/useThemeContext";
 import apiService from "../services/apiService";
 
 const sections = ["home", "about", "projects", "timeline", "skills", "contact"];
+const kofiUrl =
+  "https://ko-fi.com/kevinenyangila?utm_medium=email&utm_source=onboarding&utm_campaign=SharePage";
 
 function Section({ id, title, children }) {
   return (
@@ -127,6 +129,10 @@ export default function PortfolioPage() {
             <a href={portfolioData.cv || "#"} target="_blank" rel="noreferrer" className="btn">
               <Download className="mr-2 inline" size={16} />
               Download CV
+            </a>
+            <a href={kofiUrl} target="_blank" rel="noreferrer" className="btn-outline">
+              <Coffee className="mr-2 inline" size={16} />
+              Support on Ko-fi
             </a>
           </div>
         </motion.div>
