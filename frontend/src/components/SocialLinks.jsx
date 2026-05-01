@@ -1,7 +1,8 @@
-import { Coffee, Mail } from "lucide-react";
+import { Coffee, Mail, Play } from "lucide-react";
 
 const kofiUrl =
   "https://ko-fi.com/kevinenyangila?utm_medium=email&utm_source=onboarding&utm_campaign=SharePage";
+const youtubeUrl = "https://www.youtube.com/channel/UC2VyPm_Qer2Cs7EqMDQ-EuA";
 
 const socialItems = [
   {
@@ -40,6 +41,13 @@ const socialItems = [
     color: "bg-blue-700 text-white",
   },
   {
+    key: "youtube",
+    label: "YouTube channel",
+    getHref: (social) => social.youtube || youtubeUrl,
+    mark: "youtube",
+    color: "bg-red-600 text-white",
+  },
+  {
     key: "kofi",
     label: "Support on Ko-fi",
     getHref: () => kofiUrl,
@@ -76,7 +84,8 @@ export default function SocialLinks({ social, className = "" }) {
             >
               {mark === "mail" && <Mail size={15} />}
               {mark === "coffee" && <Coffee size={15} />}
-              {mark !== "mail" && mark !== "coffee" && mark}
+              {mark === "youtube" && <Play size={15} fill="currentColor" />}
+              {mark !== "mail" && mark !== "coffee" && mark !== "youtube" && mark}
             </span>
             <span>{label}</span>
           </a>

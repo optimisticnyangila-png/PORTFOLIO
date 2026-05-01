@@ -53,6 +53,7 @@ class ApiService {
                 linkedin: "https://www.linkedin.com/in/kevine-nyangila-8a51b7407/",
                 twitter: "https://x.com/ONyangila99940",
                 facebook: "https://www.facebook.com/kevin.nyangila",
+                youtube: "https://www.youtube.com/channel/UC2VyPm_Qer2Cs7EqMDQ-EuA",
             },
             skills: [
                 { name: "React", level: 88, group: "Frontend" },

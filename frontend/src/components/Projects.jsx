@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Code, ExternalLink } from "lucide-react";
 import ProjectModal from "./ProjectModal";
 
 export default function Projects({ data }) {
@@ -14,7 +15,7 @@ export default function Projects({ data }) {
   return (
     <section>
       <h2 className="mb-6 text-2xl font-bold">Featured Projects</h2>
-      <div className="mb-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project) => (
           <ProjectCard key={project.id || project.name} project={project} onSelect={setSelected} />
         ))}
@@ -38,7 +39,7 @@ export default function Projects({ data }) {
         ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project) => (
           <ProjectCard key={project.id || project.name} project={project} onSelect={setSelected} />
         ))}
@@ -53,24 +54,28 @@ function ProjectCard({ project, onSelect }) {
   const links = project.links || {};
 
   return (
-    <div
-      className="project-card cursor-pointer rounded-xl bg-white p-4 shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800"
+    <article
+      className="project-card mx-auto flex h-full w-full max-w-sm cursor-pointer flex-col rounded-lg bg-white p-3 shadow-md transition hover:-translate-y-1 hover:shadow-xl dark:bg-slate-800"
       onClick={() => onSelect(project)}
     >
       <img
         src={project.image || "/images/default.png"}
         alt={project.name}
-        className="mb-3 h-48 w-full rounded-lg object-cover"
+        className="mb-3 h-32 w-full rounded-md object-cover"
       />
-      <h3 className="text-xl font-semibold text-slate-950 dark:text-white">{project.name}</h3>
-      <p className="mt-2 text-gray-600 dark:text-gray-300">{project.description}</p>
+      <h3 className="text-lg font-semibold leading-tight text-slate-950 dark:text-white">
+        {project.name}
+      </h3>
+      <p className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+        {project.description}
+      </p>
 
       {project.tech?.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded bg-gray-200 px-2 py-1 text-sm text-slate-700 dark:bg-slate-700 dark:text-slate-200"
+              className="rounded bg-gray-200 px-2 py-1 text-xs font-medium text-slate-700 dark:bg-slate-700 dark:text-slate-200"
             >
               {tech}
             </span>
@@ -78,30 +83,36 @@ function ProjectCard({ project, onSelect }) {
         </div>
       )}
 
-      <div className="mt-4 flex gap-3">
+      <div className="mt-auto grid gap-2 pt-4 sm:grid-cols-2">
         {links.github && (
-          <a
-            href={links.github}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(event) => event.stopPropagation()}
-            className="font-medium text-blue-500 hover:text-blue-600"
-          >
-            GitHub
-          </a>
+          <div>
+            <a
+              href={links.github}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-blue-500/30 bg-blue-500/10 px-3 py-2 text-sm font-semibold text-blue-600 transition hover:-translate-y-0.5 hover:border-blue-500 hover:bg-blue-500 hover:text-white dark:text-blue-300 dark:hover:text-white"
+            >
+              <Code size={15} />
+              GitHub
+            </a>
+          </div>
         )}
         {links.live && (
-          <a
-            href={links.live}
-            target="_blank"
-            rel="noreferrer"
-            onClick={(event) => event.stopPropagation()}
-            className="font-medium text-green-500 hover:text-green-600"
-          >
-            Live
-          </a>
+          <div>
+            <a
+              href={links.live}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm font-semibold text-emerald-600 transition hover:-translate-y-0.5 hover:border-emerald-500 hover:bg-emerald-500 hover:text-white dark:text-emerald-300 dark:hover:text-white"
+            >
+              <ExternalLink size={15} />
+              Live
+            </a>
+          </div>
         )}
       </div>
-    </div>
+    </article>
   );
 }
