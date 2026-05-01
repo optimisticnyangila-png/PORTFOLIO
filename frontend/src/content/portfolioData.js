@@ -55,7 +55,37 @@ export const portfolioData = {
       image: "/images/portfolio.png",
       links: {
         live: "",
-        github: "https://github.com/optimisticnyangila-png/portfolio",
+        github: "https://github.com/optimisticnyangila-png/PORTFOLIO",
+        demo: "",
+      },
+    },
+    {
+      name: "KevineNyangila",
+      featured: false,
+      category: "Web",
+      description: "Personal developer project by Kevine Nyangila",
+      fullDescription:
+        "A GitHub project showcasing Kevine Nyangila's development work and technical growth.",
+      tech: ["HTML", "CSS", "JavaScript"],
+      image: "/images/default.png",
+      links: {
+        live: "",
+        github: "https://github.com/optimisticnyangila-png/KevineNyangila",
+        demo: "",
+      },
+    },
+    {
+      name: "Viral-Studio",
+      featured: false,
+      category: "Web",
+      description: "Creative studio project for digital content and web presence",
+      fullDescription:
+        "Viral-Studio is a creative web project focused on presenting digital studio services and modern online branding.",
+      tech: ["HTML", "CSS", "JavaScript"],
+      image: "/images/default.png",
+      links: {
+        live: "",
+        github: "https://github.com/optimisticnyangila-png/Viral-Studio",
         demo: "",
       },
     },

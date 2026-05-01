@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Download, ExternalLink, Mail, Moon, Sun } from "lucide-react";
+import { Download, Moon, Sun } from "lucide-react";
 import SEO from "../components/SEO";
 import Projects from "../components/Projects";
 import ContactForm from "../components/ContactForm";
+import SocialLinks from "../components/SocialLinks";
 import { useThemeContext } from "../hooks/useThemeContext";
 import apiService from "../services/apiService";
 
@@ -176,31 +177,7 @@ export default function PortfolioPage() {
             <p className="mb-6 text-slate-400">
               I&apos;m always open to discussing new opportunities and interesting projects.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href={`mailto:${portfolioData.social?.email || ""}`}
-                className="flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 hover:bg-white/10"
-              >
-                <Mail size={16} />
-                Email
-              </a>
-              <a
-                href={portfolioData.social?.github || "#"}
-                className="flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 hover:bg-white/10"
-              >
-                <Code2 size={16} />
-                GitHub
-              </a>
-              {portfolioData.social?.linkedin && (
-                <a
-                  href={portfolioData.social.linkedin}
-                  className="flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 hover:bg-white/10"
-                >
-                  <ExternalLink size={16} />
-                  LinkedIn
-                </a>
-              )}
-            </div>
+            <SocialLinks social={portfolioData.social} />
           </div>
           <ContactForm data={portfolioData} />
         </div>

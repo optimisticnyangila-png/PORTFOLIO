@@ -6,7 +6,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<PortfolioPage />} />
+      <Route path="/projects" element={<PortfolioPage />} />
       <Route path="/admin" element={<AdminPage />} />
+      <Route path="*" element={<PortfolioPage />} />
     </Routes>
   );
 }

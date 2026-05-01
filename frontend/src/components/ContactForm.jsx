@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, ExternalLink, Mail, MessageSquare, Send, Share2, User } from "lucide-react";
+import { Mail, MessageSquare, Send, User } from "lucide-react";
+import SocialLinks from "./SocialLinks";
 import apiService from "../services/apiService";
 
 export default function ContactForm({ data }) {
@@ -42,37 +43,13 @@ export default function ContactForm({ data }) {
     }
   };
 
-  const social = data?.social || {};
-  const socialLinks = [
-    { label: "Email", href: social.email ? `mailto:${social.email}` : "", icon: Mail },
-    { label: "GitHub", href: social.github, icon: Code2 },
-    { label: "LinkedIn", href: social.linkedin, icon: ExternalLink },
-    { label: "Twitter", href: social.twitter, icon: Share2 },
-    { label: "Facebook", href: social.facebook, icon: Share2 },
-  ].filter((item) => item.href);
-
   return (
     <div className="glass-card rounded-2xl p-6">
       <h3 className="text-xl font-semibold mb-6 text-center">
         {" "}
         Send a Message{" "}
       </h3>
-      {socialLinks.length > 0 && (
-        <div className="mb-6 flex flex-wrap justify-center gap-3">
-          {socialLinks.map(({ label, href, icon: Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
-              className="flex items-center gap-2 rounded-lg border border-white/20 px-3 py-2 text-sm transition-colors hover:border-cyan-400 hover:text-cyan-400"
-            >
-              <Icon size={16} />
-              {label}
-            </a>
-          ))}
-        </div>
-      )}
+      <SocialLinks social={data?.social} className="mb-6" />
       {submitStatus && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
