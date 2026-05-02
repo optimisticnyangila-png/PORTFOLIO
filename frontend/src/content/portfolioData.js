@@ -31,23 +31,8 @@ export const portfolioData = {
   ],
   projects: [
     {
-      name: "FlowPost",
-      featured: true,
-      category: "Web",
-      description: "Multi-account social media automation platform",
-      fullDescription:
-        "FlowPost allows users to manage multiple social media accounts from a single dashboard, schedule posts, and automate content distribution across platforms.",
-      tech: ["React", "Node.js", "Express", "MongoDB"],
-      image: "/images/flowpost.png",
-      links: {
-        live: "",
-        github: "https://github.com/optimisticnyangila-png/flowpost",
-        demo: "",
-      },
-    },
-    {
       name: "Portfolio Website",
-      featured: false,
+      featured: true,
       category: "Web",
       description: "Personal portfolio website showcasing projects and skills",
       fullDescription:
