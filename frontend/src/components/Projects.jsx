@@ -7,19 +7,30 @@ export default function Projects({ data }) {
   const [selected, setSelected] = useState(null);
 
   const projects = data?.projects || [];
-  const categories = ["All", ...new Set(projects.map((project) => project.category))];
-  const filteredProjects =
-    filter === "All" ? projects : projects.filter((project) => project.category === filter);
   const featuredProjects = projects.filter((project) => project.featured);
+  const regularProjects = projects.filter((project) => !project.featured);
+  const categories = ["All", ...new Set(regularProjects.map((project) => project.category))];
+  const filteredProjects =
+    filter === "All"
+      ? regularProjects
+      : regularProjects.filter((project) => project.category === filter);
 
   return (
     <section>
-      <h2 className="mb-6 text-2xl font-bold">Featured Projects</h2>
-      <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {featuredProjects.map((project) => (
-          <ProjectCard key={project.id || project.name} project={project} onSelect={setSelected} />
-        ))}
-      </div>
+      {featuredProjects.length > 0 && (
+        <>
+          <h2 className="mb-6 text-2xl font-bold">Featured Projects</h2>
+          <div className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                key={project.id || project.name}
+                project={project}
+                onSelect={setSelected}
+              />
+            ))}
+          </div>
+        </>
+      )}
 
       <h2 className="mb-6 text-2xl font-bold">All Projects</h2>
 
