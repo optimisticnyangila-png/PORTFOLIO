@@ -80,24 +80,9 @@
   ],
   "projects": [
     {
-      "id": "flowpost-001",
-      "name": "FlowPost",
-      "featured": true,
-      "category": "Web",
-      "description": "Multi-account social media automation platform",
-      "fullDescription": "FlowPost allows users to manage multiple social media accounts from a single dashboard, schedule posts, and automate content distribution across platforms.",
-      "tech": ["React", "Node.js", "Express", "MongoDB"],
-      "image": "/images/flowpost.png",
-      "links": {
-        "live": "",
-        "github": "https://github.com/optimisticnyangila-png/flowpost",
-        "demo": ""
-      }
-    },
-    {
       "id": "portfolio-001",
       "name": "Portfolio Website",
-      "featured": false,
+      "featured": true,
       "category": "Web",
       "description": "Personal portfolio website showcasing projects and skills",
       "fullDescription": "A responsive portfolio site built with React, featuring project showcases, skills visualization, and contact information.",
@@ -105,7 +90,37 @@
       "image": "/images/portfolio.png",
       "links": {
         "live": "",
-        "github": "https://github.com/optimisticnyangila-png/portfolio",
+        "github": "https://github.com/optimisticnyangila-png/PORTFOLIO",
+        "demo": ""
+      }
+    },
+    {
+      "id": "kevine-nyangila-001",
+      "name": "KevineNyangila",
+      "featured": false,
+      "category": "Web",
+      "description": "Personal developer project by Kevine Nyangila",
+      "fullDescription": "A GitHub project showcasing Kevine Nyangila's development work and technical growth.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "image": "/images/default.png",
+      "links": {
+        "live": "",
+        "github": "https://github.com/optimisticnyangila-png/KevineNyangila",
+        "demo": ""
+      }
+    },
+    {
+      "id": "viral-studio-001",
+      "name": "Viral-Studio",
+      "featured": false,
+      "category": "Web",
+      "description": "Creative studio project for digital content and web presence",
+      "fullDescription": "Viral-Studio is a creative web project focused on presenting digital studio services and modern online branding.",
+      "tech": ["HTML", "CSS", "JavaScript"],
+      "image": "/images/default.png",
+      "links": {
+        "live": "",
+        "github": "https://github.com/optimisticnyangila-png/Viral-Studio",
         "demo": ""
       }
     }

@@ -8,7 +8,11 @@ class ApiService {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            return await response.json();
+            const data = await response.json();
+            return {
+                ...data,
+                projects: this.getProjectData(),
+            };
         } catch (error) {
             console.error("Error fetching portfolio data:", error);
             // Fallback to static data if API fails
@@ -35,6 +39,55 @@ class ApiService {
             console.error("Error sending contact email:", error);
             throw error;
         }
+    }
+
+    getProjectData() {
+        return [{
+                id: "portfolio-001",
+                name: "Portfolio Website",
+                featured: true,
+                category: "Web",
+                description: "Personal portfolio website showcasing projects and skills",
+                fullDescription: "A responsive portfolio site built with React, featuring project showcases, skills visualization, and contact information.",
+                tech: ["React", "Tailwind CSS", "Vite"],
+                image: "/images/portfolio.png",
+                links: {
+                    live: "",
+                    github: "https://github.com/optimisticnyangila-png/PORTFOLIO",
+                    demo: "",
+                },
+            },
+            {
+                id: "kevine-nyangila-001",
+                name: "KevineNyangila",
+                featured: false,
+                category: "Web",
+                description: "Personal developer project by Kevine Nyangila",
+                fullDescription: "A GitHub project showcasing Kevine Nyangila's development work and technical growth.",
+                tech: ["HTML", "CSS", "JavaScript"],
+                image: "/images/default.png",
+                links: {
+                    live: "",
+                    github: "https://github.com/optimisticnyangila-png/KevineNyangila",
+                    demo: "",
+                },
+            },
+            {
+                id: "viral-studio-001",
+                name: "Viral-Studio",
+                featured: false,
+                category: "Web",
+                description: "Creative studio project for digital content and web presence",
+                fullDescription: "Viral-Studio is a creative web project focused on presenting digital studio services and modern online branding.",
+                tech: ["HTML", "CSS", "JavaScript"],
+                image: "/images/default.png",
+                links: {
+                    live: "",
+                    github: "https://github.com/optimisticnyangila-png/Viral-Studio",
+                    demo: "",
+                },
+            },
+        ];
     }
 
     // Fallback static data in case API is down
@@ -70,67 +123,7 @@ class ApiService {
                 { name: "Git", level: 82, group: "Databases and Tools" },
                 { name: "REST APIs", level: 88, group: "Databases and Tools" },
             ],
-            projects: [{
-                    id: "flowpost-001",
-                    name: "FlowPost",
-                    featured: true,
-                    category: "Web",
-                    description: "Multi-account social media automation platform",
-                    fullDescription: "FlowPost allows users to manage multiple social media accounts from a single dashboard, schedule posts, and automate content distribution across platforms.",
-                    tech: ["React", "Node.js", "Express", "MongoDB"],
-                    image: "/images/flowpost.png",
-                    links: {
-                        live: "",
-                        github: "https://github.com/optimisticnyangila-png/flowpost",
-                        demo: "",
-                    },
-                },
-                {
-                    id: "portfolio-001",
-                    name: "Portfolio Website",
-                    featured: false,
-                    category: "Web",
-                    description: "Personal portfolio website showcasing projects and skills",
-                    fullDescription: "A responsive portfolio site built with React, featuring project showcases, skills visualization, and contact information.",
-                    tech: ["React", "Tailwind CSS", "Vite"],
-                    image: "/images/portfolio.png",
-                    links: {
-                        live: "",
-                        github: "https://github.com/optimisticnyangila-png/PORTFOLIO",
-                        demo: "",
-                    },
-                },
-                {
-                    id: "kevine-nyangila-001",
-                    name: "KevineNyangila",
-                    featured: false,
-                    category: "Web",
-                    description: "Personal developer project by Kevine Nyangila",
-                    fullDescription: "A GitHub project showcasing Kevine Nyangila's development work and technical growth.",
-                    tech: ["HTML", "CSS", "JavaScript"],
-                    image: "/images/default.png",
-                    links: {
-                        live: "",
-                        github: "https://github.com/optimisticnyangila-png/KevineNyangila",
-                        demo: "",
-                    },
-                },
-                {
-                    id: "viral-studio-001",
-                    name: "Viral-Studio",
-                    featured: false,
-                    category: "Web",
-                    description: "Creative studio project for digital content and web presence",
-                    fullDescription: "Viral-Studio is a creative web project focused on presenting digital studio services and modern online branding.",
-                    tech: ["HTML", "CSS", "JavaScript"],
-                    image: "/images/default.png",
-                    links: {
-                        live: "",
-                        github: "https://github.com/optimisticnyangila-png/Viral-Studio",
-                        demo: "",
-                    },
-                },
-            ],
+            projects: this.getProjectData(),
             experience: [{
                     title: "Full Stack Developer (Self-Driven Projects)",
                     period: "2025 - Present",
